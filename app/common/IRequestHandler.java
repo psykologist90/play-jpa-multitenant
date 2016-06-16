@@ -22,11 +22,12 @@ public class IRequestHandler  implements HttpRequestHandler {
         return new Action.Simple() {
             @Override
             public F.Promise<Result> call(Http.Context ctx) throws Throwable {
-                String[] tenants = new String[]{"tenant1", "tenant2"};
                 Map<String, Object> args = ctx.args;
-                Random r = new Random();
-                String tenant = tenants[r.nextInt(2)];
-                System.out.println("Random tenant"+tenant);
+//                String[] tenants = new String[]{"tenant1", "tenant2"};
+//                Random r = new Random();
+//                String tenant = tenants[r.nextInt(2)];
+//                System.out.println("Random tenant"+tenant);
+                String tenant = ctx.request().getHeader("tenantId");
                 args.put("tenantId", tenant);
                 return delegate.call(ctx);
             }
