@@ -1,6 +1,7 @@
 
-package models.bo;
+package models.application;
 
+import models.bo.PrimaryBaseDo;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.envers.Audited;
 
@@ -16,7 +17,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "iq_unit_mstr")
 @Audited
-public class UnitEntity extends PrimaryBaseDo  {
+public class UnitEntity extends PrimaryBaseDo {
     
     /**
      * Comment for <code>serialVersionUID</code>

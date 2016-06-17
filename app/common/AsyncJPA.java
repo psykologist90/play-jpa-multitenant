@@ -1,6 +1,5 @@
 package common;
 
-import models.bo.UnitEntity;
 import play.db.jpa.JPA;
 import play.libs.F;
 import play.libs.F.Promise;

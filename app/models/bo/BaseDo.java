@@ -93,12 +93,4 @@ public abstract class BaseDo implements Serializable {
         this.version = version;
     }
 
-    public static <T extends BaseDo> Set<T> findAll(Class<T> t) {
-        Query query = JPA.em().createQuery("SELECT t FROM "+ t.getName()+" t");
-        return new LinkedHashSet<>(query.getResultList());
-    }
-
-    public static <T extends BaseDo> T find(Class<T> t, Object primaryKey) {
-        return JPA.em().find(t, primaryKey);
-    }
 }

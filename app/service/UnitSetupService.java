@@ -1,8 +1,8 @@
 package service;
 
 import common.AsyncJPA;
-import models.bo.UnitEntity;
-import play.db.jpa.JPA;
+import dao.UnitEntityDAO;
+import models.application.UnitEntity;
 import play.libs.F.Promise;
 
 import javax.inject.Singleton;
@@ -16,18 +16,13 @@ import static play.libs.F.Promise.promise;
 @Singleton
 public class UnitSetupService {
 
-    /*public Promise<Set<UnitEntity>> findAll() {
-        try {
-            return promise(() -> JPA.withTransaction(()-> {
-                return UnitEntity.findAll(UnitEntity.class);
-            }));
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-        return null;
-    }*/
+    private UnitEntityDAO dao;
+
+    public UnitSetupService(){
+        this.dao = new UnitEntityDAO();
+    }
 
     public Promise<Set<UnitEntity>> findAll() {
-        return AsyncJPA.doInAsync(() -> UnitEntity.findAll(UnitEntity.class));
+        return AsyncJPA.doInAsync(() -> dao.findAll());
     }
 }

@@ -23,10 +23,6 @@ public class IRequestHandler  implements HttpRequestHandler {
             @Override
             public F.Promise<Result> call(Http.Context ctx) throws Throwable {
                 Map<String, Object> args = ctx.args;
-//                String[] tenants = new String[]{"tenant1", "tenant2"};
-//                Random r = new Random();
-//                String tenant = tenants[r.nextInt(2)];
-//                System.out.println("Random tenant"+tenant);
                 String tenant = ctx.request().getHeader("tenantId");
                 args.put("tenantId", tenant);
                 return delegate.call(ctx);

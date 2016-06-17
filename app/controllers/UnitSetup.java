@@ -1,7 +1,6 @@
 package controllers;
 
-import models.bo.UnitEntity;
-import play.db.jpa.Transactional;
+import models.application.UnitEntity;
 import play.libs.F;
 import play.libs.Json;
 import play.mvc.Controller;
@@ -9,7 +8,6 @@ import play.mvc.Result;
 import service.UnitSetupService;
 
 import javax.inject.Inject;
-import java.util.List;
 import java.util.Set;
 
 /**
