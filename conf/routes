@@ -3,7 +3,7 @@
 # ~~~~
 
 # Default path will just redirect to the unit list
-GET     /                                       controllers.UnitSetup.index()
+GET     /                                       controllers.UserController.index()
 
 # Units list
-GET     /units                                  @controllers.UnitSetup.list()
+GET     /users                                  @controllers.UserController.list()

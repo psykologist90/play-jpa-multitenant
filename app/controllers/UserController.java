@@ -1,11 +1,11 @@
 package controllers;
 
-import models.application.UnitEntity;
+import models.application.User;
 import play.libs.F;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
-import service.UnitSetupService;
+import service.UserService;
 
 import javax.inject.Inject;
 import java.util.Set;
@@ -16,10 +16,10 @@ import java.util.Set;
  * to bind the entity manager which fails as the tenant is not available yet.
  * Created by RP on 12/15/15.
  */
-public class UnitSetup extends Controller {
+public class UserController extends Controller {
 
     @Inject
-    private UnitSetupService unitSetupService;
+    private UserService userService;
 
 
     public F.Promise<Result> index() {
@@ -27,11 +27,11 @@ public class UnitSetup extends Controller {
     }
 
     /**
-     * Returns list of units.
+     * Returns list of users.
      */
     public F.Promise<Result> list() {
-        F.Promise<Set<UnitEntity>> entities = unitSetupService.findAll();
-        return entities.map((Set<UnitEntity> e) -> {
+        F.Promise<Set<User>> entities = userService.findAll();
+        return entities.map((Set<User> e) -> {
             return ok(Json.toJson(e));
         });
     }

@@ -1,6 +1,5 @@
 package common;
 
-import play.http.DefaultHttpRequestHandler;
 import play.http.HttpRequestHandler;
 import play.libs.F;
 import play.mvc.Action;
@@ -9,7 +8,6 @@ import play.mvc.Result;
 
 import java.lang.reflect.Method;
 import java.util.Map;
-import java.util.Random;
 
 /**
  * Called for every request, sets the appropriate tenant id in context
